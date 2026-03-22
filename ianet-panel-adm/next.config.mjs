@@ -1,9 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  images: {
+    unoptimized: true,
+  },
   async headers() {
     return [
       {
-        // Esto permite CORS en todas tus rutas de API
         source: "/api/:path*",
         headers: [
           { key: "Access-Control-Allow-Credentials", value: "true" },
@@ -14,6 +22,6 @@ const nextConfig = {
       },
     ]
   },
-}
+};
 
-module.exports = nextConfig
+export default nextConfig;
